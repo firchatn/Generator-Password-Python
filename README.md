@@ -6,9 +6,9 @@ cd Generator-Password-Python
 
 python generator.py
 ### Result
-![Alt text](img1/img.png)
+![Alt text](img/img1.png)
 
 click generator
 
-![Alt text](img2/img.png)
+![Alt text](img/img2.png)
 
