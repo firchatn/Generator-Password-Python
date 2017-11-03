@@ -2,7 +2,8 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import random
-
+ 
+passToSave = ''
 
 class Handler:
     def onDeleteWindow(self, *args):
@@ -14,6 +15,9 @@ class Handler:
         
     def savepass(self, butsave):
         print("save password")
+        file = open("password.txt","w")
+        print(passToSave)
+        file.write(passToSave)
         
     def resetpass(self, butreset):
         print("reset password")
@@ -28,7 +32,8 @@ def changeBuff():
     for i in range(pw_length):
         next_index = random.randrange(len(alphabet))
         mypw = mypw + alphabet[next_index]
-
+    global passToSave
+    passToSave = mypw
     label = builder.get_object("label2")
     label.set_text("Password : "+ mypw)
     
