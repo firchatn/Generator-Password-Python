@@ -17,6 +17,8 @@ class Handler:
         
     def resetpass(self, butreset):
         print("reset password")
+        label = builder.get_object("label2")
+        label.set_text("Password : ")
             
 
 def changeBuff():
