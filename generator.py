@@ -1,6 +1,7 @@
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
+import random
 
 
 class Handler:
@@ -9,6 +10,7 @@ class Handler:
 
     def getpass(self, butgenerator):
         print("generator password")
+        changeBuff()
         
     def savepass(self, butsave):
         print("save password")
@@ -17,7 +19,17 @@ class Handler:
         print("reset password")
             
 
+def changeBuff():
+    alphabet = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    pw_length = 8
+    mypw = ""
+    for i in range(pw_length):
+        next_index = random.randrange(len(alphabet))
+        mypw = mypw + alphabet[next_index]
 
+    label = builder.get_object("label2")
+    label.set_text("Password : "+ mypw)
+    
 builder = Gtk.Builder()
 builder.add_from_file("generator-layout.glade")
 builder.connect_signals(Handler())
