@@ -22,7 +22,7 @@ builder = Gtk.Builder()
 builder.add_from_file("generator-layout.glade")
 builder.connect_signals(Handler())
 
-window = builder.get_object("window1")
+window = builder.get_object("dialog1")
 window.connect("delete-event", Gtk.main_quit)
 window.set_default_size(400, 300)
 window.show_all()

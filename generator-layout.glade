@@ -86,10 +86,10 @@
               </object>
             </child>
             <child type="label">
-              <object class="GtkLabel" id="label1">
+              <object class="GtkLabel" id="Welcome Generator Password">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">&lt;b&gt;frame1&lt;/b&gt;</property>
+                <property name="label" translatable="yes">&lt;b&gt;Welcome Generator Password&lt;/b&gt;</property>
                 <property name="use_markup">True</property>
               </object>
             </child>
@@ -107,11 +107,5 @@
       <action-widget response="0">butsave</action-widget>
       <action-widget response="0">butreset</action-widget>
     </action-widgets>
-  </object>
-  <object class="GtkWindow" id="window1">
-    <property name="can_focus">False</property>
-    <child>
-      <placeholder/>
-    </child>
   </object>
 </interface>
