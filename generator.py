@@ -5,6 +5,11 @@ import random
  
 passToSave = ''
 
+"""
+    Class Handler events : Lisente event 
+    button of app
+"""
+
 class Handler:
     def onDeleteWindow(self, *args):
         Gtk.main_quit(*args)
@@ -27,7 +32,7 @@ class Handler:
 
 def changeBuff():
     alphabet = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    pw_length = 8
+    pw_length =4
     mypw = ""
     for i in range(pw_length):
         next_index = random.randrange(len(alphabet))
@@ -43,7 +48,7 @@ builder.connect_signals(Handler())
 
 window = builder.get_object("dialog1")
 window.connect("delete-event", Gtk.main_quit)
-window.set_default_size(400, 300)
+window.set_default_size(600, 500)
 window.show_all()
 
 
