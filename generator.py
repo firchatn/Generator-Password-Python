@@ -1,6 +1,7 @@
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
+from gi.repository import Gtk, Gdk
+
 import random
  
 passToSave = ''
@@ -32,7 +33,7 @@ class Handler:
 
 def changeBuff():
     alphabet = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    pw_length =4
+    pw_length =12
     mypw = ""
     for i in range(pw_length):
         next_index = random.randrange(len(alphabet))
@@ -41,15 +42,29 @@ def changeBuff():
     passToSave = mypw
     label = builder.get_object("label2")
     label.set_text("Password : "+ mypw)
-    
+
+
+
 builder = Gtk.Builder()
 builder.add_from_file("generator-layout.glade")
 builder.connect_signals(Handler())
 
-window = builder.get_object("dialog1")
-window.connect("delete-event", Gtk.main_quit)
-window.set_default_size(600, 500)
-window.show_all()
+Mywindow = builder.get_object("dialog1")
+Mywindow.connect("delete-event", Gtk.main_quit)
+Mywindow.set_default_size(600, 500)
+
+
+screen = Gdk.Screen.get_default()
+
+css_provider = Gtk.CssProvider()
+css_provider.load_from_path('f.css')
+
+context = Gtk.StyleContext()
+context.add_provider_for_screen(screen, css_provider,
+  Gtk.STYLE_PROVIDER_PRIORITY_USER)
+
+
+Mywindow.show_all()
 
 
 Gtk.main()
